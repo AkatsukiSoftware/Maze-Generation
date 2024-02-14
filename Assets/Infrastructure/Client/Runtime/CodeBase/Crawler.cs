@@ -8,7 +8,7 @@ namespace MazeGeneration.Client.Runtime
         {
             bool done = false;
 
-            int x = _widthMax / 2;
+            int x = 0;
             int z = _depthMax / 2;
 
             Random random = new Random();
@@ -19,7 +19,7 @@ namespace MazeGeneration.Client.Runtime
 
                 if (random.Next(2) == 0)
                 {
-                    x += random.Next(-1, 2);
+                    x += random.Next(0, 2);
                 }
                 else
                 {

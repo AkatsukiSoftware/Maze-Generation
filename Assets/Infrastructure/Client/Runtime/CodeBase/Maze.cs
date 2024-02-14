@@ -8,6 +8,8 @@ namespace MazeGeneration.Client.Runtime
         [SerializeField] protected int _widthMax = default;
         [SerializeField] protected int _depthMax = default;
 
+        [SerializeField] protected int _scaleUnit = default;
+
         [SerializeField] protected byte[,] _map = default;
 
         private void Awake()
@@ -58,7 +60,9 @@ namespace MazeGeneration.Client.Runtime
                 {
                     if (_map[x, z] == 1)
                     {
-                        GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = new Vector3(x, 0, z);
+                        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                        cube.transform.localScale = new Vector3(_scaleUnit, _scaleUnit, _scaleUnit);
+                        cube.transform.position = new Vector3(x * _scaleUnit, 0, z * _scaleUnit);
                     }
                 }
             }
